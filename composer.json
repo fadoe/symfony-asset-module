@@ -2,6 +2,7 @@
     "name": "fadoe/symfony-asset-module",
     "description": "Use Symfony Asset as Zend Framework Module",
     "type": "Module",
+    "license": "BSD-3-Clause",
     "require": {
         "zendframework/zend-http": "^2.5",
         "zendframework/zend-modulemanager": "^2.5",
