@@ -1,10 +1,12 @@
 <?php
+
 namespace FaDoe\SymfonyAssetModule\Context;
 
+use PHPUnit\Framework\TestCase;
 use Zend\Http\PhpEnvironment\Request;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
-class ZendRequestContextFactoryTest extends \PHPUnit_Framework_TestCase
+class ZendRequestContextFactoryTest extends TestCase
 {
     /**
      * @var ZendRequestContextFactory
@@ -24,7 +26,7 @@ class ZendRequestContextFactoryTest extends \PHPUnit_Framework_TestCase
     public function testInvoke()
     {
         $request = $this->getMockBuilder(Request::class)->disableOriginalConstructor()->getMock();
-        $serviceLocator = $this->getMock(ServiceLocatorInterface::class);
+        $serviceLocator = $this->getMockBuilder(ServiceLocatorInterface::class)->getMock();
         $serviceLocator->expects($this->once())
             ->method('get')
             ->with('Request')

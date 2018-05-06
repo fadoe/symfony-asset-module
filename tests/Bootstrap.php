@@ -1,7 +1,7 @@
 <?php
+
 namespace FaDoe\SymfonyAssetModule;
 
-use Zend\Mvc\Service\ServiceManagerConfig;
 use Zend\ServiceManager\ServiceManager;
 use Zend\Stdlib\ArrayUtils;
 
@@ -39,7 +39,7 @@ class Bootstrap
             ),
         );
         $config = ArrayUtils::merge($baseConfig, $testConfig);
-        $serviceManager = new ServiceManager(new ServiceManagerConfig());
+        $serviceManager = new ServiceManager();
         $serviceManager->setService('ApplicationConfig', $config);
         $serviceManager->get('ModuleManager')->loadModules();
         static::$serviceManager = $serviceManager;

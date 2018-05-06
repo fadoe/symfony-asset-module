@@ -1,4 +1,5 @@
 <?php
+
 namespace FaDoe\SymfonyAssetModule;
 
 use Zend\ModuleManager\Feature\ConfigProviderInterface;

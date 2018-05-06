@@ -1,10 +1,12 @@
 <?php
+
 namespace FaDoe\SymfonyAssetModule\View\Helper;
 
+use PHPUnit\Framework\TestCase;
 use Symfony\Component\Asset\Packages;
 use Zend\View\Helper\AbstractHelper;
 
-class SymfonyAssetViewHelperTest extends \PHPUnit_Framework_TestCase
+class SymfonyAssetViewHelperTest extends TestCase
 {
     /**
      * @var SymfonyAssetViewHelper

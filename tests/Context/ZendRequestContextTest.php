@@ -1,10 +1,12 @@
 <?php
+
 namespace FaDoe\SymfonyAssetModule\Context;
 
+use PHPUnit\Framework\TestCase;
 use Symfony\Component\Asset\Context\ContextInterface;
 use Zend\Http\PhpEnvironment\Request;
 
-class ZendRequestContextTest extends \PHPUnit_Framework_TestCase
+class ZendRequestContextTest extends TestCase
 {
     /**
      * @var ZendRequestContext
