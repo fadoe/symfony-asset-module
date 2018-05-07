@@ -1,9 +1,15 @@
 <?php
+
 namespace FaDoe\SymfonyAssetModule\View\Helper;
 
 use Symfony\Component\Asset\Packages;
 use Zend\View\Helper\AbstractHelper;
 
+/**
+ * Class SymfonyAssetViewHelper
+ *
+ * @package FaDoe\SymfonyAssetModule\View\Helper
+ */
 class SymfonyAssetViewHelper extends AbstractHelper
 {
     /**
@@ -22,24 +28,24 @@ class SymfonyAssetViewHelper extends AbstractHelper
     }
 
     /**
-     * @param string      $path
+     * @param string $path
      * @param null|string $packageName
      *
      * @return string
      */
-    public function getUrl($path, $packageName = null)
+    public function __invoke(string $path, string $packageName = null): string
     {
-        return $this->packages->getUrl($path, $packageName);
+        return $this->getUrl($path, $packageName);
     }
 
     /**
-     * @param string      $path
+     * @param string $path
      * @param null|string $packageName
      *
      * @return string
      */
-    public function __invoke($path, $packageName = null)
+    public function getUrl(string $path, string $packageName = null): string
     {
-        return $this->getUrl($path, $packageName);
+        return $this->packages->getUrl($path, $packageName);
     }
 }

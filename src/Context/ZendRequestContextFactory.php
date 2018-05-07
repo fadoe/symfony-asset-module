@@ -1,18 +1,24 @@
 <?php
+
 namespace FaDoe\SymfonyAssetModule\Context;
 
-use Zend\ServiceManager\ServiceLocatorInterface;
+use Psr\Container\ContainerInterface;
 
+/**
+ * Class ZendRequestContextFactory
+ *
+ * @package FaDoe\SymfonyAssetModule\Context
+ */
 class ZendRequestContextFactory
 {
     /**
-     * @param ServiceLocatorInterface $serviceLocator
+     * @param ContainerInterface $container
      *
      * @return ZendRequestContext
      */
-    public function __invoke(ServiceLocatorInterface $serviceLocator)
+    public function __invoke(ContainerInterface $container)
     {
-        $request = $serviceLocator->get('Request');
+        $request = $container->get('Request');
 
         return new ZendRequestContext($request);
     }

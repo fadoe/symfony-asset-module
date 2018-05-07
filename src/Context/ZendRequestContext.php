@@ -1,9 +1,15 @@
 <?php
+
 namespace FaDoe\SymfonyAssetModule\Context;
 
 use Symfony\Component\Asset\Context\ContextInterface;
 use Zend\Http\PhpEnvironment\Request;
 
+/**
+ * Class ZendRequestContext
+ *
+ * @package FaDoe\SymfonyAssetModule\Context
+ */
 class ZendRequestContext implements ContextInterface
 {
     /**
@@ -26,7 +32,7 @@ class ZendRequestContext implements ContextInterface
      *
      * @return string The base path
      */
-    public function getBasePath()
+    public function getBasePath(): string
     {
         return $this->request->getBasePath();
     }
@@ -36,7 +42,7 @@ class ZendRequestContext implements ContextInterface
      *
      * @return bool true if the request is secure, false otherwise
      */
-    public function isSecure()
+    public function isSecure(): bool
     {
         return true;
     }

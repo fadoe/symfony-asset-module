@@ -4,12 +4,12 @@
     "type": "Module",
     "license": "BSD-3-Clause",
     "require": {
+        "php": "^7.1",
         "zendframework/zend-http": "^2.5",
-        "zendframework/zend-modulemanager": "^2.5",
-        "zendframework/zend-servicemanager": "^3.3",
         "zendframework/zend-stdlib": "^3.1",
         "zendframework/zend-view": "^2.5",
-        "symfony/asset": "^4.0"
+        "symfony/asset": "^4.0",
+        "psr/container": "^1.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^7.1",
@@ -31,7 +31,10 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "FaDoe\\SymfonyAssetModule\\": "tests/"
+            "FaDoe\\SymfonyAssetModule\\": "test/"
         }
+    },
+    "scripts": {
+        "test": "phpunit"
     }
 }

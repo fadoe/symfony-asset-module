@@ -1,4 +1,5 @@
 <?php
+
 namespace FaDoe\SymfonyAssetModule\Package;
 
 use Symfony\Component\Asset\Context\ContextInterface;
@@ -10,6 +11,11 @@ use Symfony\Component\Asset\VersionStrategy\EmptyVersionStrategy;
 use Symfony\Component\Asset\VersionStrategy\StaticVersionStrategy;
 use Symfony\Component\Asset\VersionStrategy\VersionStrategyInterface;
 
+/**
+ * Class PackagesService
+ *
+ * @package FaDoe\SymfonyAssetModule\Package
+ */
 class PackagesService
 {
     /**
@@ -31,14 +37,18 @@ class PackagesService
      * @param string|null $version
      * @param string|null $versionFormat
      * @param string|null $basePath
-     * @param array|null  $baseUrls
+     * @param array|null $baseUrls
      *
      * @return PackageInterface
      */
-    public function createService($version = null, $versionFormat = null, $basePath = null, array $baseUrls = null)
-    {
+    public function createService(
+        string $version = null,
+        string $versionFormat = null,
+        string $basePath = null,
+        array $baseUrls = null
+    ) {
         $strategy = $this->createStrategy($version, $versionFormat);
-        $package = $this->createPackage($strategy, $basePath, $baseUrls);
+        $package  = $this->createPackage($strategy, $basePath, $baseUrls);
 
         return $package;
     }
@@ -49,7 +59,7 @@ class PackagesService
      *
      * @return VersionStrategyInterface
      */
-    private function createStrategy($version, $versionFormat)
+    private function createStrategy(string $version, string $versionFormat): VersionStrategyInterface
     {
         if (null === $version) {
             $strategy = new EmptyVersionStrategy();
@@ -63,13 +73,16 @@ class PackagesService
     /**
      * @param VersionStrategyInterface $strategy
      *
-     * @param string|null              $basePath
-     * @param array                    $baseUrls
+     * @param string|null $basePath
+     * @param array $baseUrls
      *
      * @return PackageInterface
      */
-    private function createPackage(VersionStrategyInterface $strategy, $basePath = null, array $baseUrls = null)
-    {
+    private function createPackage(
+        VersionStrategyInterface $strategy,
+        string $basePath = null,
+        array $baseUrls = null
+    ): PackageInterface {
         $context = $this->context;
 
         if (null !== $basePath) {

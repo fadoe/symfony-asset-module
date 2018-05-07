@@ -1,22 +1,26 @@
 <?php
+
 namespace FaDoe\SymfonyAssetModule\View\Helper;
 
+use Psr\Container\ContainerInterface;
 use Symfony\Component\Asset\Packages;
-use Zend\View\HelperPluginManager;
 
+/**
+ * Class SymfonyAssetViewHelperFactory
+ *
+ * @package FaDoe\SymfonyAssetModule\View\Helper
+ */
 class SymfonyAssetViewHelperFactory
 {
     /**
-     * @param HelperPluginManager $pluginManager
+     * @param ContainerInterface $container
      *
      * @return SymfonyAssetViewHelper
      * @throws \Exception
      */
-    public function __invoke(HelperPluginManager $pluginManager)
+    public function __invoke(ContainerInterface $container): SymfonyAssetViewHelper
     {
-        $serviceLocator = $pluginManager->getServiceLocator();
-
-        $config = $serviceLocator->get('Config');
+        $config = $container->get('Config');
 
         if (false === isset($config['fadoe_symfony_asset_module'])) {
             throw new \Exception('Config not found');
@@ -24,7 +28,7 @@ class SymfonyAssetViewHelperFactory
 
         $config = $config['fadoe_symfony_asset_module'];
 
-        $packagesService = $serviceLocator->get('FaDoe\SymfonyAssetModule\PackagesService');
+        $packagesService = $container->get('FaDoe\SymfonyAssetModule\PackagesService');
 
         $version = $config['version'];
         $versionFormat = $config['version_format'];

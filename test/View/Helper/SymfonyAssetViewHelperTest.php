@@ -36,7 +36,8 @@ class SymfonyAssetViewHelperTest extends TestCase
         $packageName = null;
         $this->packages->expects($this->once())
             ->method('getUrl')
-            ->with($path, $packageName);
+            ->with($path, $packageName)
+            ->willReturn($path);
 
         $this->viewHelper->getUrl($path, $packageName);
     }
@@ -47,7 +48,8 @@ class SymfonyAssetViewHelperTest extends TestCase
         $packageName = null;
         $this->packages->expects($this->once())
             ->method('getUrl')
-            ->with($path, $packageName);
+            ->with($path, $packageName)
+            ->willReturn($path);
 
         $this->viewHelper->__invoke($path, $packageName);
     }

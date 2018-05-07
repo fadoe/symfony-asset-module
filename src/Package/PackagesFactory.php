@@ -1,18 +1,24 @@
 <?php
+
 namespace FaDoe\SymfonyAssetModule\Package;
 
-use Zend\ServiceManager\ServiceLocatorInterface;
+use Psr\Container\ContainerInterface;
 
+/**
+ * Class PackagesFactory
+ *
+ * @package FaDoe\SymfonyAssetModule\Package
+ */
 class PackagesFactory
 {
     /**
-     * @param ServiceLocatorInterface $serviceLocatorInterface
+     * @param ContainerInterface $container
      *
      * @return PackagesService
      */
-    public function __invoke(ServiceLocatorInterface $serviceLocatorInterface)
+    public function __invoke(ContainerInterface $container): PackagesService
     {
-        $context = $serviceLocatorInterface->get('FaDoe\SymfonyAssetModule\Context');
+        $context = $container->get('FaDoe\SymfonyAssetModule\Context');
 
         return new PackagesService($context);
     }
